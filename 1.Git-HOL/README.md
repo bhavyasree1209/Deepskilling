@@ -1,384 +1,138 @@
-\# Git Commands Hands-On Lab
+# 🚀 Git Commands Hands-On Lab
 
+## 📖 Overview
 
+This repository contains the implementation of a Git Hands-On Lab that demonstrates the fundamental Git workflow, including repository creation, file tracking, staging, committing, and remote repository integration.
 
-\## Objective
+---
 
+## 🎯 Objectives
 
+✅ Verify Git Installation
 
-This lab demonstrates the basic Git workflow, including repository initialization, checking status, staging files, committing changes, and preparing for remote repository integration.
+✅ Configure Git User Information
 
+✅ Initialize a Git Repository
 
+✅ Create and Track Files
 
-\## Tools Used
+✅ Stage and Commit Changes
 
+✅ Understand Repository Status
 
+✅ Prepare for GitHub/GitLab Integration
 
-\* Git for Windows
+---
 
-\* PowerShell / Git Bash
+## 🛠️ Tools Used
 
-\* GitHub or GitLab
+| Tool | Purpose |
+|--------|---------|
+| Git for Windows | Version Control |
+| PowerShell | Command Execution |
+| GitHub / GitLab | Remote Repository |
 
+---
 
-
-\## Commands Practiced
-
-
-
-\* `git --version`
-
-\* `git config`
-
-\* `git init`
-
-\* `git status`
-
-\* `git add`
-
-\* `git commit`
-
-\* `git push`
-
-\* `git pull`
-
-
-
-\---
-
-
-
-\## Step 1: Verify Git Installation
-
-
-
-Check whether Git is installed correctly.
-
-
+## 💻 Commands Practiced
 
 ```bash
-
 git --version
-
-```
-
-
-
-\*\*Output:\*\*
-
-
-
-```text
-
-git version 2.55.0.windows.3
-
-```
-
-
-
-\---
-
-
-
-\## Step 2: Configure Git User Information
-
-
-
-Configure the Git username and email.
-
-
-
-```bash
-
 git config --global user.name "Your Name"
-
-git config --global user.email "your\_email@example.com"
-
-```
-
-
-
-Verify the configuration:
-
-
-
-```bash
-
-git config --global --list
-
-```
-
-
-
-\---
-
-
-
-\## Step 3: Create a New Repository
-
-
-
-Create a project folder and navigate into it.
-
-
-
-```bash
-
-mkdir GitDemo
-
-cd GitDemo
-
-```
-
-
-
-Initialize a Git repository.
-
-
-
-```bash
-
+git config --global user.email "your_email@example.com"
 git init
-
-```
-
-
-
-\*\*Output:\*\*
-
-
-
-```text
-
-Initialized empty Git repository
-
-```
-
-
-
-\---
-
-
-
-\## Step 4: Create a File
-
-
-
-Create a sample text file.
-
-
-
-```bash
-
-echo Welcome to Git > welcome.txt
-
-```
-
-
-
-Verify the file:
-
-
-
-```bash
-
-dir
-
-```
-
-
-
-\---
-
-
-
-\## Step 5: Check Repository Status
-
-
-
-```bash
-
 git status
-
-```
-
-
-
-Git identifies `welcome.txt` as an untracked file.
-
-
-
-\---
-
-
-
-\## Step 6: Add File to Staging Area
-
-
-
-```bash
-
 git add welcome.txt
-
-```
-
-
-
-Verify staging status:
-
-
-
-```bash
-
-git status
-
-```
-
-
-
-\---
-
-
-
-\## Step 7: Commit Changes
-
-
-
-Create a commit with a message.
-
-
-
-```bash
-
 git commit -m "Added welcome.txt"
-
+git push
+git pull
 ```
 
+---
 
-
-\*\*Output:\*\*
-
-
+## 📂 Project Structure
 
 ```text
-
-\[master (root-commit) 9dd051b] Added welcome.txt
-
-1 file changed, 0 insertions(+), 0 deletions(-)
-
-create mode 100644 welcome.txt
-
+GitDemo
+│
+├── README.md
+└── welcome.txt
 ```
 
+---
 
+## ⚙️ Implementation Steps
 
-\---
-
-
-
-\## Step 8: Verify Clean Working Tree
-
-
+### Step 1: Verify Git Installation
 
 ```bash
-
-git status
-
+git --version
 ```
 
+### Step 2: Configure Git
 
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+```
 
-\*\*Output:\*\*
+### Step 3: Initialize Repository
 
+```bash
+git init
+```
 
+### Step 4: Create File
+
+```bash
+echo Welcome to Git > welcome.txt
+```
+
+### Step 5: Add File
+
+```bash
+git add welcome.txt
+```
+
+### Step 6: Commit Changes
+
+```bash
+git commit -m "Added welcome.txt"
+```
+
+---
+
+## 📸 Output
+
+### Repository Status
 
 ```text
-
 On branch master
-
 nothing to commit, working tree clean
-
 ```
 
+---
 
+## 🎓 Learning Outcomes
 
-\---
+After completing this lab, I learned:
 
+- Git Installation and Configuration
+- Repository Initialization
+- File Tracking
+- Staging Changes
+- Creating Commits
+- Basic Git Workflow
+- GitHub Integration
 
+---
 
-\## Remote Repository Commands
+## ✅ Conclusion
 
+This lab provided practical experience with Git and demonstrated how version control systems help developers efficiently manage and track source code changes.
 
+⭐ Git is an essential tool for modern software development and collaboration.
 
-Add a remote repository:
-
-
-
-```bash
-
-git remote add origin <repository-url>
-
-```
-
-
-
-Pull changes:
-
-
-
-```bash
-
-git pull origin master
-
-```
-
-
-
-Push changes:
-
-
-
-```bash
-
-git push -u origin master
-
-```
-
-
-
-\---
-
-
-
-\## Learning Outcomes
-
-
-
-After completing this lab, I was able to:
-
-
-
-\* Install and verify Git.
-
-\* Configure Git user settings.
-
-\* Initialize a local Git repository.
-
-\* Track files using Git.
-
-\* Stage and commit changes.
-
-\* Understand the purpose of Git status checks.
-
-\* Prepare a repository for remote collaboration using GitHub/GitLab.
-
-
-
-\## Conclusion
-
-
-
-This exercise provided hands-on experience with essential Git commands and demonstrated the basic workflow used in version control systems for managing source code efficiently.
 
 
 
