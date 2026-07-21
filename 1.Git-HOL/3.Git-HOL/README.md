@@ -1,383 +1,300 @@
-\# Git Commands Hands-On Lab
+<div align="center">
 
+# 🌿 Git Branching and Merging Hands-On Lab
 
+### Working with Branches, Commits, and Merge Operations in Git
 
-\## Objective
+</div>
 
+---
 
+## 📖 Overview
 
-This lab demonstrates the basic Git workflow, including repository initialization, checking status, staging files, committing changes, and preparing for remote repository integration.
+This lab demonstrates the process of creating branches, making changes independently, merging branches into the main branch, and managing branch history using Git.
 
+Branching allows developers to work on new features without affecting the main codebase, while merging combines completed work back into the main branch.
 
+---
 
-\## Tools Used
+## 🎯 Objectives
 
+✅ Understand Git Branching
 
+✅ Create and Switch Between Branches
 
-\* Git for Windows
+✅ Commit Changes in a Branch
 
-\* PowerShell / Git Bash
+✅ Compare Differences Between Branches
 
-\* GitHub or GitLab
+✅ Merge a Branch into Master
 
+✅ View Commit History Using Git Log
 
+✅ Delete Branches After Successful Merge
 
-\## Commands Practiced
+---
 
+## 🛠️ Tools Used
 
+| Tool | Purpose |
+|--------|---------|
+| Git | Version Control |
+| Git Bash | Command Execution |
+| P4Merge | Visual Difference Comparison |
+| GitHub / GitLab | Repository Hosting |
 
-\* `git --version`
+---
 
-\* `git config`
-
-\* `git init`
-
-\* `git status`
-
-\* `git add`
-
-\* `git commit`
-
-\* `git push`
-
-\* `git pull`
-
-
-
-\---
-
-
-
-\## Step 1: Verify Git Installation
-
-
-
-Check whether Git is installed correctly.
-
-
-
-```bash
-
-git --version
-
-```
-
-
-
-\*\*Output:\*\*
-
-
+## 📂 Repository Structure
 
 ```text
-
-git version 2.55.0.windows.3
-
+GitDemo
+│
+├── README.md
+├── welcome.txt
+└── branchfile.txt
 ```
 
+---
 
+# 🌿 Branching
 
-\---
-
-
-
-\## Step 2: Configure Git User Information
-
-
-
-Configure the Git username and email.
-
-
+## Step 1: Create a New Branch
 
 ```bash
-
-git config --global user.name "Your Name"
-
-git config --global user.email "your\_email@example.com"
-
+git branch GitNewBranch
 ```
 
+---
 
-
-Verify the configuration:
-
-
+## Step 2: View Available Branches
 
 ```bash
-
-git config --global --list
-
+git branch -a
 ```
 
-
-
-\---
-
-
-
-\## Step 3: Create a New Repository
-
-
-
-Create a project folder and navigate into it.
-
-
-
-```bash
-
-mkdir GitDemo
-
-cd GitDemo
-
-```
-
-
-
-Initialize a Git repository.
-
-
-
-```bash
-
-git init
-
-```
-
-
-
-\*\*Output:\*\*
-
-
+Example Output:
 
 ```text
-
-Initialized empty Git repository
-
+* master
+  GitNewBranch
 ```
 
+The `*` symbol indicates the currently active branch.
 
+---
 
-\---
-
-
-
-\## Step 4: Create a File
-
-
-
-Create a sample text file.
-
-
+## Step 3: Switch to the New Branch
 
 ```bash
-
-echo Welcome to Git > welcome.txt
-
+git checkout GitNewBranch
 ```
 
-
-
-Verify the file:
-
-
+or
 
 ```bash
-
-dir
-
+git switch GitNewBranch
 ```
 
+---
 
-
-\---
-
-
-
-\## Step 5: Check Repository Status
-
-
+## Step 4: Create a New File
 
 ```bash
+echo Branch Content > branchfile.txt
+```
 
+Verify:
+
+```bash
 git status
-
 ```
 
+---
 
-
-Git identifies `welcome.txt` as an untracked file.
-
-
-
-\---
-
-
-
-\## Step 6: Add File to Staging Area
-
-
+## Step 5: Add and Commit Changes
 
 ```bash
-
-git add welcome.txt
-
+git add .
+git commit -m "Added file in GitNewBranch"
 ```
 
+---
 
-
-Verify staging status:
-
-
+## Step 6: Verify Status
 
 ```bash
-
 git status
-
 ```
 
-
-
-\---
-
-
-
-\## Step 7: Commit Changes
-
-
-
-Create a commit with a message.
-
-
-
-```bash
-
-git commit -m "Added welcome.txt"
-
-```
-
-
-
-\*\*Output:\*\*
-
-
+Expected Output:
 
 ```text
-
-\[master (root-commit) 9dd051b] Added welcome.txt
-
-1 file changed, 0 insertions(+), 0 deletions(-)
-
-create mode 100644 welcome.txt
-
-```
-
-
-
-\---
-
-
-
-\## Step 8: Verify Clean Working Tree
-
-
-
-```bash
-
-git status
-
-```
-
-
-
-\*\*Output:\*\*
-
-
-
-```text
-
-On branch master
-
+On branch GitNewBranch
 nothing to commit, working tree clean
-
 ```
 
+---
 
+# 🔀 Merging
 
-\---
-
-
-
-\## Remote Repository Commands
-
-
-
-Add a remote repository:
-
-
+## Step 1: Switch Back to Master
 
 ```bash
-
-git remote add origin <repository-url>
-
+git checkout master
 ```
 
+---
 
+## Step 2: Compare Differences
 
-Pull changes:
-
-
+### Command Line Comparison
 
 ```bash
-
-git pull origin master
-
+git diff master GitNewBranch
 ```
 
+---
 
-
-Push changes:
-
-
+## Step 3: Visual Comparison Using P4Merge
 
 ```bash
-
-git push -u origin master
-
+git difftool master GitNewBranch
 ```
 
+P4Merge displays the differences visually.
 
+---
 
-\---
+## Step 4: Merge Branch into Master
 
+```bash
+git merge GitNewBranch
+```
 
+Expected Output:
 
-\## Learning Outcomes
+```text
+Updating ...
+Fast-forward
+```
 
+---
 
+## Step 5: View Commit History
+
+```bash
+git log --oneline --graph --decorate
+```
+
+Example:
+
+```text
+* abc1234 (HEAD -> master) Added file in GitNewBranch
+* xyz5678 Added README file
+* 9dd051b Added welcome.txt
+```
+
+---
+
+## Step 6: Delete Merged Branch
+
+```bash
+git branch -d GitNewBranch
+```
+
+Verify:
+
+```bash
+git branch
+```
+
+Expected Output:
+
+```text
+* master
+```
+
+---
+
+## 💻 Commands Summary
+
+```bash
+git branch GitNewBranch
+git branch -a
+git checkout GitNewBranch
+git add .
+git commit -m "Added file in GitNewBranch"
+git checkout master
+git diff master GitNewBranch
+git difftool master GitNewBranch
+git merge GitNewBranch
+git log --oneline --graph --decorate
+git branch -d GitNewBranch
+```
+
+---
+
+## 📸 Expected Outputs
+
+### Branch List
+
+```text
+* master
+  GitNewBranch
+```
+
+### Merge Success
+
+```text
+Updating ...
+Fast-forward
+```
+
+### Branch Deletion
+
+```text
+Deleted branch GitNewBranch
+```
+
+---
+
+## 🎓 Learning Outcomes
 
 After completing this lab, I was able to:
 
+- Create Git branches
+- Switch between branches
+- Perform independent development
+- Compare branch differences
+- Merge branches into the master branch
+- Analyze commit history
+- Delete branches after merging
 
+---
 
-\* Install and verify Git.
+## 🌟 Benefits of Branching and Merging
 
-\* Configure Git user settings.
+✔ Parallel Development
 
-\* Initialize a local Git repository.
+✔ Safe Feature Development
 
-\* Track files using Git.
+✔ Better Collaboration
 
-\* Stage and commit changes.
+✔ Easier Code Review
 
-\* Understand the purpose of Git status checks.
+✔ Controlled Integration of Changes
 
-\* Prepare a repository for remote collaboration using GitHub/GitLab.
+---
 
+## ✅ Conclusion
 
+Git branching and merging are fundamental concepts in version control that allow developers to work independently on features, fixes, and enhancements while maintaining a stable main codebase. This lab provided practical experience with creating branches, committing changes, merging work, and managing repository history.
 
-\## Conclusion
+---
 
+<div align="center">
 
+## 🎉 Branching and Merging Lab Completed Successfully 🎉
 
-This exercise provided hands-on experience with essential Git commands and demonstrated the basic workflow used in version control systems for managing source code efficiently.
-
-
+</div>
