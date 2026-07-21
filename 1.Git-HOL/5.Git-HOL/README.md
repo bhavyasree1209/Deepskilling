@@ -1,384 +1,169 @@
-\# Git Commands Hands-On Lab
+# Student App - React Application
 
+## Project Overview
 
+Student App is a React-based web application developed as part of a hands-on React exercise. The main purpose of this project is to understand React fundamentals, component-based architecture, JSX, rendering, and managing application data.
 
-\## Objective
+This application demonstrates how modern frontend applications are created using reusable React components and provides a simple user interface for displaying student-related information.
 
+---
 
+## Objectives
 
-This lab demonstrates the basic Git workflow, including repository initialization, checking status, staging files, committing changes, and preparing for remote repository integration.
+The objectives of this exercise are:
 
+- To understand the fundamentals of React.js.
+- To create and use React components.
+- To understand JSX syntax.
+- To implement component-based architecture.
+- To learn how React renders UI elements.
+- To handle data dynamically using React.
+- To understand project structure in React applications.
+- To develop and run a React application using npm.
 
+---
 
-\## Tools Used
+## Technologies Used
 
+- React.js
+- JavaScript (ES6)
+- HTML5
+- CSS3
+- Node.js
+- npm
 
+---
 
-\* Git for Windows
+## Software Requirements
 
-\* PowerShell / Git Bash
+- Node.js installed
+- npm package manager
+- Visual Studio Code
+- Modern web browser (Chrome/Edge)
 
-\* GitHub or GitLab
+---
 
-
-
-\## Commands Practiced
-
-
-
-\* `git --version`
-
-\* `git config`
-
-\* `git init`
-
-\* `git status`
-
-\* `git add`
-
-\* `git commit`
-
-\* `git push`
-
-\* `git pull`
-
-
-
-\---
-
-
-
-\## Step 1: Verify Git Installation
-
-
-
-Check whether Git is installed correctly.
-
-
-
-```bash
-
-git --version
+## Project Structure
 
 ```
-
-
-
-\*\*Output:\*\*
-
-
-
-```text
-
-git version 2.55.0.windows.3
-
+studentapp
+│
+├── node_modules
+│
+├── public
+│   └── index.html
+│
+├── src
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│
+├── package.json
+├── package-lock.json
+├── README.md
+└── .gitignore
 ```
 
+---
 
+## Features
 
-\---
+- React-based user interface.
+- Component-based application design.
+- Dynamic rendering of student information.
+- Clean and organized project structure.
+- CSS-based styling for better presentation.
+- Fast development and testing using React development server.
 
+---
 
+## Installation and Execution Steps
 
-\## Step 2: Configure Git User Information
-
-
-
-Configure the Git username and email.
-
-
-
-```bash
-
-git config --global user.name "Your Name"
-
-git config --global user.email "your\_email@example.com"
+### Step 1: Clone the Repository
 
 ```
-
-
-
-Verify the configuration:
-
-
-
-```bash
-
-git config --global --list
-
+git clone <repository-url>
 ```
 
-
-
-\---
-
-
-
-\## Step 3: Create a New Repository
-
-
-
-Create a project folder and navigate into it.
-
-
-
-```bash
-
-mkdir GitDemo
-
-cd GitDemo
+### Step 2: Navigate to Project Directory
 
 ```
-
-
-
-Initialize a Git repository.
-
-
-
-```bash
-
-git init
-
+cd studentapp
 ```
 
-
-
-\*\*Output:\*\*
-
-
-
-```text
-
-Initialized empty Git repository
+### Step 3: Install Required Dependencies
 
 ```
-
-
-
-\---
-
-
-
-\## Step 4: Create a File
-
-
-
-Create a sample text file.
-
-
-
-```bash
-
-echo Welcome to Git > welcome.txt
-
+npm install
 ```
 
+This command installs all the required packages mentioned in `package.json`.
 
-
-Verify the file:
-
-
-
-```bash
-
-dir
+### Step 4: Start the React Application
 
 ```
-
-
-
-\---
-
-
-
-\## Step 5: Check Repository Status
-
-
-
-```bash
-
-git status
-
+npm start
 ```
 
+The application will start running in the browser.
 
-
-Git identifies `welcome.txt` as an untracked file.
-
-
-
-\---
-
-
-
-\## Step 6: Add File to Staging Area
-
-
-
-```bash
-
-git add welcome.txt
+Application URL:
 
 ```
-
-
-
-Verify staging status:
-
-
-
-```bash
-
-git status
-
+http://localhost:3000
 ```
 
+---
 
+## Implementation Details
 
-\---
+### React Components
 
+The application is developed using reusable React components. Each component represents a specific part of the user interface.
 
+### JSX
 
-\## Step 7: Commit Changes
+JSX is used to write HTML-like syntax inside JavaScript, making UI development easier and more readable.
 
+### Rendering
 
+React renders components efficiently and updates the user interface whenever the application data changes.
 
-Create a commit with a message.
+---
 
+## Output
 
+The application successfully runs in the browser and displays the Student App user interface.
 
-```bash
+The output demonstrates:
 
-git commit -m "Added welcome.txt"
+- Proper rendering of React components.
+- Successful execution of the React application.
+- Functional frontend interface.
 
-```
+---
 
+## Learning Outcomes
 
+After completing this exercise, the following concepts were learned:
 
-\*\*Output:\*\*
+- Basics of React.js.
+- Creating React applications.
+- Understanding React project structure.
+- Creating functional components.
+- Using JSX for UI development.
+- Rendering components in React.
+- Running applications using npm commands.
+- Organizing frontend projects for GitHub submission.
 
+---
 
+## Conclusion
 
-```text
+The Student App React project helped in understanding the core concepts of React development. Through this exercise, the importance of components, JSX, rendering, and project organization was learned. This project provides a foundation for developing larger and more complex React applications.
 
-\[master (root-commit) 9dd051b] Added welcome.txt
+---
 
-1 file changed, 0 insertions(+), 0 deletions(-)
+## Author
 
-create mode 100644 welcome.txt
-
-```
-
-
-
-\---
-
-
-
-\## Step 8: Verify Clean Working Tree
-
-
-
-```bash
-
-git status
-
-```
-
-
-
-\*\*Output:\*\*
-
-
-
-```text
-
-On branch master
-
-nothing to commit, working tree clean
-
-```
-
-
-
-\---
-
-
-
-\## Remote Repository Commands
-
-
-
-Add a remote repository:
-
-
-
-```bash
-
-git remote add origin <repository-url>
-
-```
-
-
-
-Pull changes:
-
-
-
-```bash
-
-git pull origin master
-
-```
-
-
-
-Push changes:
-
-
-
-```bash
-
-git push -u origin master
-
-```
-
-
-
-\---
-
-
-
-\## Learning Outcomes
-
-
-
-After completing this lab, I was able to:
-
-
-
-\* Install and verify Git.
-
-\* Configure Git user settings.
-
-\* Initialize a local Git repository.
-
-\* Track files using Git.
-
-\* Stage and commit changes.
-
-\* Understand the purpose of Git status checks.
-
-\* Prepare a repository for remote collaboration using GitHub/GitLab.
-
-
-
-\## Conclusion
-
-
-
-This exercise provided hands-on experience with essential Git commands and demonstrated the basic workflow used in version control systems for managing source code efficiently.
-
-
-
+Bhavya Vijaya Sree Surisetti
